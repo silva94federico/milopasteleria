@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milo Pastelería</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        // API for get requests
+        let fetchRes = fetch(
+            "https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bWPB1vFsj4cfkyxMmaEZ_gLYgCQat0hmDK7pWyc/exec");
+        // fetchRes is the promise to resolve
+        // it by using.then() method
+        var input = {};
+        fetchRes.then(res =>
+            res.json()).then(d => {
+                console.log(d);
+                alert(JSON.parse(d));
+            });
+
+        // Parse given JSON
+        const parsed = JSON.parse(input);
+
+        // Get keys (=cells) of each items
+        const keys = Object.keys(parsed.root.row[0]);
+
+        // Build the table header
+        const header = `<thead><tr>` + keys
+            .map(key => `<th>${key}</th>`)
+            .join('') + `</thead></tr>`;
+
+        // Build the table body
+        const body = `<tbody>` + parsed.root.row
+            .map(row => `<tr>${Object.values(row)
+                .map(cell => `<td>${cell}</td>`)
+                .join('')}</tr>`
+            ).join('');
+
+        // Build the final table
+        const table = `
+<table>
+  ${header}
+  ${body}
+</table>
+`;
+
+        // Append the result into #root element
+        document.getElementById('root').innerHTML = table;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milo Pastelería</title>
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body
+  style="-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none; user-select: none;min-height: 100vh;position: relative;background-color: #ffffcc;font-family: 'Roboto', sans-serif;">
+
+  <style>
+    .carousel-item {
+      height: 100vh;
+      background: #000;
+      color: white;
+      position: relative;
+      font-weight: bolder;
+    }
+
+    .container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-bottom: 50px;
+    }
+
+    .overlay-image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.5;
+    }
+
+    #bsFooter {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2.5rem;
+      text-align: center;
+      color: white;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      /* Full width */
+      padding: 12px;
+      /* Some padding */
+      border: 1px solid #ccc;
+      /* Gray border */
+      border-radius: 4px;
+      /* Rounded borders */
+      box-sizing: border-box;
+      /* Make sure that padding and width stays in place */
+      margin-top: 6px;
+      /* Add a top margin */
+      margin-bottom: 16px;
+      /* Bottom margin */
+      resize: vertical
+        /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    /* Style the submit button with a specific background color etc */
+    input[type=submit] {
+      background-color: #fd8983;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* When moving the mouse over the submit button, add a darker green color */
+    input[type=submit]:hover {
+      background-color: #ffc1bf;
+    }
+
+    /* Add a background color and some padding around the form */
+    .formContainer {
+      border-radius: 20px;
+      background-color: #b4d6ff;
+      padding: 20px;
+      text-align: center;
+      margin: 5% 10% 3% 10%;
+    }
+
+    .historyContainer {
+      border-radius: 20px;
+      background-color: #ffc5fc;
+      padding: 20px;
+      margin: 3% 10% 5% 10%;
+    }
+  </style>
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+      <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="overlay-image" style="background-image:url(./images/slide-1.jpg);"></div>
+
+        <div class="container">
+          <div class="d-flex h-100 align-items-center justify-content-center"></div>
+          <h1 class="d-flex h-100 align-items-center justify-content-center">Milo Pastelería</h1>
+          <p class="d-flex h-100 align-items-center justify-content-center">Las tortas más ricas, en un solo
+            lugar</p>
+          <div href="#" class="btn btn-outline-light btn-lg d-flex h-100 align-items-center justify-content-center">
+            Conocé nuestros productos</div>
+        </div>
+
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <div class="overlay-image" style="background-image:url(./images/slide-2.jpg);"></div>
+        <div class="container">
+          <div class="d-flex h-100 align-items-center justify-content-center"></div>
+          <h1 class="d-flex h-100 align-items-center justify-content-center">Milo Pastelería</h1>
+          <p class="d-flex h-100 align-items-center justify-content-center">Las tortas más ricas, en un solo
+            lugar</p>
+          <div href="#" class="btn btn-outline-light btn-lg d-flex h-100 align-items-center justify-content-center">
+            Conocé nuestros productos</div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <div class="overlay-image" style="background-image:url(./images/slide-3.jpg);"></div>
+        <div class="container">
+          <div class="d-flex h-100 align-items-center justify-content-center"></div>
+          <h1 class="d-flex h-100 align-items-center justify-content-center">Milo Pastelería</h1>
+          <p class="d-flex h-100 align-items-center justify-content-center">Las tortas más ricas, en un solo
+            lugar</p>
+          <div href="#" class="btn btn-outline-light btn-lg d-flex h-100 align-items-center justify-content-center">
+            Conocé nuestros productos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="formContainer">
+    <h4>Dejanos tu pedido acá:</h4>
+    <form action="action_page.php">
+
+      <label for="fname">Nombre completo</label>
+      <input type="text" id="nombrec" name="nombre" placeholder="¿Cuál es tu nombre completo?" required>
+
+      <label for="lname">Número de contacto</label>
+      <input type="text" id="numeroc" name="numero" placeholder="¿Cuál es tu número de celular?" required>
+
+      <label for="subject">Pedido</label>
+      <textarea id="pedidoc" name="pedido" placeholder="¿Qué vas a comer de rico?" style="height:150px;resize: none;"
+        required></textarea>
+
+      <input type="submit" value="Realizar pedido">
+
+    </form>
+  </div>
+
+
+  <main>
+    <div class="historyContainer">
+      <div class="col text-center">
+        <h2>Sobre nosotros</h2>
+        <h5>Nuestra historia</h5>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada quam et lectus egestas sagittis.
+          Nulla in purus eget mi mollis aliquam ac quis enim. Donec quis sapien nec quam mattis ultricies non eu odio.
+          Donec eleifend hendrerit interdum. Fusce interdum nulla ligula, eget dignissim mauris mattis vitae. Sed
+          fermentum ornare quam tincidunt pellentesque. Etiam tincidunt vel lacus nec commodo.</p>
+        <h5>Nuestro compromiso</h5>
+        <br>
+        <p>Integer dictum tincidunt nulla. Phasellus consequat libero cursus, dictum diam in, feugiat urna. Maecenas
+          consequat tempus sem, eget commodo mi laoreet eleifend. Sed vel tincidunt felis, at placerat tortor.
+          Suspendisse accumsan mollis lorem, non accumsan elit mollis vel. Cras luctus convallis metus sit amet
+          luctus. Nullam tristique dapibus dui quis tristique. Fusce pretium aliquet accumsan. In condimentum purus
+          sit amet nisi ornare ultrices. Nulla aliquam sem sit amet interdum cursus. Cras consectetur est vel sagittis
+          tempor. Ut bibendum mollis posuere. Vivamus eros erat, blandit sit amet finibus in, placerat sit amet
+          lectus. Fusce varius laoreet urna non suscipit. Sed dignissim enim nisi.</p>
+      </div>
+    </div>
+  </main>
+
+  <div style="height: 20px">
+
+  </div>
+
+  <div id="bsFooter">
+    <footer class="py-5" style="background: rgb(161, 161, 161);">
+      <h4>Seguinos también en nuestras redes:</h3>
+        <p>Facebook - Instagram</p>
+      <h4>¿Cómo llego?</h4>
+      <p>Laprida 143 - Famaillá, Tucumán</p>
+      <p>Ver en el mapa</p>
+        <p>2022 Milo Pastelería. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
