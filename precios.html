@@ -18,32 +18,6 @@
     <img src="images/logo.png" alt="Milo Pastelería" class="center">
     
     <p id="total"></p>"
-
-    <script>
-        $.getScript("script.js")
-            .done(function (script, textStatus) {
-                console.log(textStatus);
-                document.getElementById('pricesTable').addEventListener('click', function (e) {
-                    if (e.target.type === 'checkbox') {
-                        var total = 0;
-                        var data = getData();
-                        id = data[0];
-                        prices = data[1];
-                        for (var i = 1; i <= id; i++) {
-                            i = document.getElementById("checkbox" + i);
-                            if (i.checked == true) {
-                                total += prices[id - 1];
-                            }
-                        }
-                        document.getElementById("total").innerHTML = "Precio total: " + total;
-                    }
-                });
-            })
-            .fail(function (jqxhr, settings, exception) {
-                //script fail warning if you want it
-            });
-
-    </script>
 </body>
 
 </html>
