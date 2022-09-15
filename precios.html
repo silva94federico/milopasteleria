@@ -5,51 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milo Pastelería</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <div id="root"></div>
+    <img src="images/logo.png" alt="Milo Pastelería" class="center">
+    
+    <p id="total"></p>"
+
     <script>
-        // API for get requests
-        let fetchRes = fetch(
-            "https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bWPB1vFsj4cfkyxMmaEZ_gLYgCQat0hmDK7pWyc/exec");
-        // fetchRes is the promise to resolve
-        // it by using.then() method
-        var input = {};
-        fetchRes.then(res =>
-            res.json()).then(d => {
-                console.log(d);
-                alert(JSON.parse(d));
+        $.getScript("script.js")
+            .done(function (script, textStatus) {
+                console.log(textStatus);
+                document.getElementById('pricesTable').addEventListener('click', function (e) {
+                    if (e.target.type === 'checkbox') {
+                        var total = 0;
+                        var data = getData();
+                        id = data[0];
+                        prices = data[1];
+                        for (var i = 1; i <= id; i++) {
+                            i = document.getElementById("checkbox" + i);
+                            if (i.checked == true) {
+                                total += prices[id - 1];
+                            }
+                        }
+                        document.getElementById("total").innerHTML = "Precio total: " + total;
+                    }
+                });
+            })
+            .fail(function (jqxhr, settings, exception) {
+                //script fail warning if you want it
             });
 
-        // Parse given JSON
-        const parsed = JSON.parse(input);
-
-        // Get keys (=cells) of each items
-        const keys = Object.keys(parsed.root.row[0]);
-
-        // Build the table header
-        const header = `<thead><tr>` + keys
-            .map(key => `<th>${key}</th>`)
-            .join('') + `</thead></tr>`;
-
-        // Build the table body
-        const body = `<tbody>` + parsed.root.row
-            .map(row => `<tr>${Object.values(row)
-                .map(cell => `<td>${cell}</td>`)
-                .join('')}</tr>`
-            ).join('');
-
-        // Build the final table
-        const table = `
-<table>
-  ${header}
-  ${body}
-</table>
-`;
-
-        // Append the result into #root element
-        document.getElementById('root').innerHTML = table;
     </script>
 </body>
 
