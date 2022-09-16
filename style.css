@@ -79,9 +79,17 @@ input[type=submit]:hover {
     margin: 5% 10% 3% 10%;
 }
 
+.totalContainer {
+    border-radius: 20px;
+    background-color: rgb(255, 254, 193);
+    padding: 20px;
+    text-align: center;
+    margin: 0% 20% 0% 20%;
+}
+
 .historyContainer {
     border-radius: 20px;
-    background-color: #ffc5fc;
+    background-color: rgb(255, 254, 193);
     padding: 20px;
     margin: 3% 10% 5% 10%;
 }
@@ -97,6 +105,11 @@ body {
     position: relative;
     background-color: rgb(255, 227, 227);
     font-family: 'Roboto', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 input[placeholder] {
@@ -171,5 +184,26 @@ th {
 }
 
 .tableStyle {
-    /*margin: 0% 20% 0% 20%;*/
+    margin: 0% 10% 0% 10%;
+}
+
+.inputClass {
+    border: 2px solid gray;
+    border-right: 2px solid gray;
+    height: 20px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+    color: gray;
+    background-color: white;
+    width: 200px;
+    font-size: medium;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
