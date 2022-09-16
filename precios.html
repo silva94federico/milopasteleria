@@ -16,8 +16,28 @@
 
 <body>
     <img src="images/logo.png" alt="Milo Pastelería" class="center">
-    
-    <p id="total"></p>
+
+    <h3 style="text-align:center;font-weight:bold">Listado de productos</h3>
+
+    <div style="margin: 0% 35% 0% 35%;"><input type="text" id="searchInput" onkeyup="searchFunction()" class="inputClass" placeholder="Buscar..."></div>
+
+    <div class="spinner"></div>
+    <p class="inner"></p>
+
+    <div class="formContainer" style="margin: 1% 10% 0% 10%;">
+        <h1 class="totalContainer">Total: $0</h1>
+        <h3>Dejanos tu pedido</h3>
+        <form action="form.php">
+            <label for="fname">Nombre completo</label>
+            <input type="text" id="nombrec" name="nombre" placeholder="¿Cuál es tu nombre completo?" required>
+
+            <label for="lname">Número de contacto</label>
+            <input type="text" id="numeroc" name="numero" placeholder="¿Cuál es tu número de celular?" required>
+
+            <input type="submit" value="Enviar pedido">
+        </form>
+    </div>
+    <script src="searchScript.js"></script>
 </body>
 
 </html>
