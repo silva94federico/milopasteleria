@@ -84,7 +84,7 @@ input[type=submit]:hover {
     background-color: rgb(255, 254, 193);
     padding: 20px;
     text-align: center;
-    margin: 0% 20% 0% 20%;
+    margin: 0% 20% 1% 20%;
 }
 
 .historyContainer {
@@ -107,7 +107,7 @@ body {
     font-family: 'Roboto', sans-serif;
     max-width: 100%;
     overflow-x: hidden;
-    animation: fadeInAnimation ease 3s;
+    animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
