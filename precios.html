@@ -19,13 +19,12 @@
 
     <h3 style="text-align:center;font-weight:bold">Listado de productos</h3>
 
-    <div style="margin: 0% 35% 0% 35%;"><input type="text" id="searchInput" onkeyup="searchFunction()" class="inputClass" placeholder="Buscar..."></div>
+    <div style="margin: 0% 25% 0% 25%;"><input type="text" id="searchInput" onkeyup="searchFunction()" class="inputClass" placeholder="Buscar..."></div>
 
     <div class="spinner"></div>
     <p class="inner"></p>
 
     <div class="formContainer" style="margin: 1% 10% 0% 10%;">
-        <h1 class="totalContainer">Total: $0</h1>
         <h3>Dejanos tu pedido</h3>
         <form action="form.php">
             <label for="fname">Nombre completo</label>
@@ -34,9 +33,59 @@
             <label for="lname">Número de contacto</label>
             <input type="text" id="numeroc" name="numero" placeholder="¿Cuál es tu número de celular?" required>
 
+            <label for="lname">¿Cuántos vas a llevar?</label>
+            <select id="cars" name="cars" style="text-align: center">
+                <option value="volvo">1</option>
+                <option value="saab">2</option>
+                <option value="fiat">3</option>
+                <option value="audi">4</option>
+                <option value="volvo">5</option>
+                <option value="saab">6</option>
+                <option value="fiat">7</option>
+                <option value="audi">8</option>
+                <option value="volvo">9</option>
+                <option value="saab">10</option>
+                <option value="fiat">11</option>
+                <option value="audi">12</option>
+                <option value="volvo">13</option>
+                <option value="saab">14</option>
+                <option value="fiat">15</option>
+                <option value="audi">16</option>
+                <option value="fiat">17</option>
+                <option value="audi">18</option>
+                <option value="volvo">19</option>
+                <option value="saab">20</option>
+                <option value="fiat">21</option>
+                <option value="audi">22</option>
+                <option value="volvo">23</option>
+                <option value="saab">24</option>
+                <option value="volvo">25</option>
+                <option value="saab">26</option>
+                <option value="fiat">27</option>
+                <option value="audi">28</option>
+                <option value="volvo">29</option>
+                <option value="saab">30</option>
+                <option value="fiat">31</option>
+                <option value="audi">32</option>
+                <option value="volvo">33</option>
+                <option value="saab">34</option>
+                <option value="fiat">35</option>
+                <option value="audi">36</option>
+              </select>
+
+              <h1 class="totalContainer">Total: $0</h1>
+
             <input type="submit" value="Enviar pedido">
         </form>
     </div>
+    <div class="formContainer" style="background-color: #5e5e5e;color:white;margin: 2% 10% 0% 10%;">
+        <h4>¿No encontraste lo que buscabas?</h4>
+        <form action="index.html#consulta">
+          <input type="submit" value="¡Hacenos tu consulta!">
+    
+        </form>
+      </div>
+
     <script src="searchScript.js"></script>
 </body>
 
