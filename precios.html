@@ -1,209 +1,92 @@
-.carousel-item {
-    height: 100vh;
-    background: #000;
-    color: white;
-    position: relative;
-    font-weight: bolder;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-.container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-bottom: 50px;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milo Pastelería</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="script.js"></script>
+</head>
 
-.overlay-image {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.5;
-}
+<body>
+    <img src="images/logo.png" alt="Milo Pastelería" class="center">
 
-#bsFooter {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-    text-align: center;
-    color: white;
-}
+    <h3 style="text-align:center;font-weight:bold">Listado de productos</h3>
 
-input[type=text],
-select,
-textarea {
-    width: 100%;
-    /* Full width */
-    padding: 12px;
-    /* Some padding */
-    border: 1px solid #ccc;
-    /* Gray border */
-    border-radius: 4px;
-    /* Rounded borders */
-    box-sizing: border-box;
-    /* Make sure that padding and width stays in place */
-    margin-top: 6px;
-    /* Add a top margin */
-    margin-bottom: 16px;
-    /* Bottom margin */
-    resize: vertical
-        /* Allow the user to vertically resize the textarea (not horizontally) */
-}
+    <div style="margin: 0% 25% 0% 25%;"><input type="text" id="searchInput" onkeyup="searchFunction()" class="inputClass" placeholder="Buscar..."></div>
 
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-    background-color: #fd8983;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+    <div class="spinner"></div>
+    <p class="inner"></p>
 
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-    background-color: #ffc1bf;
-}
+    <div class="formContainer" style="margin: 1% 10% 0% 10%;">
+        <h3>Dejanos tu pedido</h3>
+        <form action="form.php">
+            <label for="fname">Nombre completo</label>
+            <input type="text" id="nombrec" name="nombre" placeholder="¿Cuál es tu nombre completo?" required>
 
-/* Add a background color and some padding around the form */
-.formContainer {
-    border-radius: 20px;
-    background-color: #b4d6ff;
-    padding: 20px;
-    text-align: center;
-    margin: 5% 10% 3% 10%;
-}
+            <label for="lname">Número de contacto</label>
+            <input type="text" id="numeroc" name="numero" placeholder="¿Cuál es tu número de celular?" required>
 
-.totalContainer {
-    border-radius: 20px;
-    background-color: rgb(255, 254, 193);
-    padding: 20px;
-    text-align: center;
-    margin: 0% 20% 1% 20%;
-}
+            <label for="lname">¿Cuántos vas a llevar?</label>
+            <select id="cars" name="cars" style="text-align: center">
+                <option value="volvo">1</option>
+                <option value="saab">2</option>
+                <option value="fiat">3</option>
+                <option value="audi">4</option>
+                <option value="volvo">5</option>
+                <option value="saab">6</option>
+                <option value="fiat">7</option>
+                <option value="audi">8</option>
+                <option value="volvo">9</option>
+                <option value="saab">10</option>
+                <option value="fiat">11</option>
+                <option value="audi">12</option>
+                <option value="volvo">13</option>
+                <option value="saab">14</option>
+                <option value="fiat">15</option>
+                <option value="audi">16</option>
+                <option value="fiat">17</option>
+                <option value="audi">18</option>
+                <option value="volvo">19</option>
+                <option value="saab">20</option>
+                <option value="fiat">21</option>
+                <option value="audi">22</option>
+                <option value="volvo">23</option>
+                <option value="saab">24</option>
+                <option value="volvo">25</option>
+                <option value="saab">26</option>
+                <option value="fiat">27</option>
+                <option value="audi">28</option>
+                <option value="volvo">29</option>
+                <option value="saab">30</option>
+                <option value="fiat">31</option>
+                <option value="audi">32</option>
+                <option value="volvo">33</option>
+                <option value="saab">34</option>
+                <option value="fiat">35</option>
+                <option value="audi">36</option>
+              </select>
 
-.historyContainer {
-    border-radius: 20px;
-    background-color: rgb(255, 254, 193);
-    padding: 20px;
-    margin: 3% 10% 5% 10%;
-}
+              <h1 class="totalContainer">Total: $0</h1>
 
-body {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    min-height: 100vh;
-    position: relative;
-    background-color: rgb(255, 227, 227);
-    font-family: 'Roboto', sans-serif;
-    max-width: 100%;
-    overflow-x: hidden;
-    animation: fadeInAnimation ease 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
+            <input type="submit" value="Enviar pedido">
+        </form>
+    </div>
+    <div class="formContainer" style="background-color: #5e5e5e;color:white;margin: 2% 10% 0% 10%;">
+        <h4>¿No encontraste lo que buscabas?</h4>
+        <form action="index.html#consulta">
+          <input type="submit" value="¡Hacenos tu consulta!">
+    
+        </form>
+      </div>
 
-input[placeholder] {
-    text-align: center;
-}
+    <script src="searchScript.js"></script>
+</body>
 
-textarea[placeholder] {
-    text-align: center;
-}
-
-.column {
-    float: left;
-    width: 50%;
-    height: 32rem;
-}
-
-.internalColumn {
-    position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .column {
-        width: 100%;
-    }
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td,
-th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #ffffff;
-}
-
-tr:hover {
-    background-color: rgb(255, 254, 193);
-}
-
-th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #dcecff;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-}
-
-.tableStyle {
-    margin: 0% 10% 0% 10%;
-}
-
-.inputClass {
-    border: 2px solid gray;
-    border-right: 2px solid gray;
-    height: 20px;
-    border-radius: 5px 5px 5px 5px;
-    outline: none;
-    color: gray;
-    background-color: white;
-    width: 200px;
-    font-size: medium;
-}
-  
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-}
+</html>
