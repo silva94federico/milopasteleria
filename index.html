@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="submitForms.js"></script>
 </head>
 
 <body>
@@ -63,7 +64,7 @@
 
   <div class="formContainer" id="consulta">
     <h4>Dejanos tu consulta</h4>
-    <form action="form.php">
+    <form id="sendQuestionForm">
 
       <label for="fname">Nombre completo</label>
       <input type="text" id="nombrec" name="nombre" placeholder="¿Cuál es tu nombre completo?" required>
@@ -75,7 +76,7 @@
       <textarea id="consultac" name="consulta" placeholder="¿Cuál es tu consulta?" style="height:150px;resize: none;"
         required></textarea>
 
-      <input type="submit" value="Enviar consulta">
+      <input type="submit" value="Enviar consulta" onclick="return submitQuestionForm();">
 
     </form>
   </div>
