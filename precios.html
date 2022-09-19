@@ -25,16 +25,16 @@
 
   <div class="formContainer" style="margin: 1% 10% 0% 10%;">
     <h3>Dejanos tu pedido</h3>
-    <form action="form.php">
+    <form id="sendMessageForm">
       <label for="fname">Nombre completo</label>
-      <input type="text" id="nombrec" name="nombre" placeholder="¿Cuál es tu nombre completo?" required>
+      <input type="text" id="nombrec" name="nombre" placeholder="¿Cuál es tu nombre?" required>
 
       <label for="lname">Número de contacto</label>
-      <input type="text" id="numeroc" name="numero" placeholder="¿Cuál es tu número de celular?" required>
+      <input type="text" id="numeroc" name="numero" placeholder="¿Cuál es tu número?" required>
 
       <h2 class="totalContainer" id="total">Total: $0</h2>
 
-      <input type="submit" value="Enviar pedido">
+      <input type="submit" value="Enviar pedido" onclick="return submitDetailsForm();">
     </form>
   </div>
   <div class="formContainer" style="background-color: #5e5e5e;color:white;margin: 2% 10% 0% 10%;">
