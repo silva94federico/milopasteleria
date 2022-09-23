@@ -6,7 +6,7 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
     items.push("<table id=\"pricesTable\"><tr><th>Agregar</th><th>Productos</th><th>Precio</th><th>Cantidad</th></tr>");
     $.each(data, function (key, val) {
         items.push("<tr><td><input type=\"checkbox\" id=\"checkbox" + id + "\" value=\"cbox" + id + "\"></td><td id=\"product" + id + "\">" + key + "</td><td id=\"price" + id + "\">$" + val + "</td>" +
-            "<td><select name=\"select" + id + "\" id=\"select" + id + "\" class=\"selectClass\">" +
+            "<td><select name=\"select" + id + "\" id=\"select" + id + "\" class=\"selectClass\"><option value=\"0\">-</option>" +
             "<option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option>" +
             "<option value=\"7\">7</option><option value=\"8\">8</option><option value=\"9\">9</option><option value=\"10\">10</option><option value=\"11\">11</option><option value=\"12\">12</option>" +
             "<option value=\"13\">13</option><option value=\"14\">14</option><option value=\"15\">15</option><option value=\"16\">16</option><option value=\"17\">17</option><option value=\"18\">18</option>" +
@@ -42,11 +42,18 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
             var quantityId = "#select" + checkboxIdNum;
             var quantity = $(quantityId).find(":selected").val();
 
+            if (quantity === '0') { // - = '0', make it 1 by default
+                quantity = '1';
+            }
+
+            quantity = parseInt(quantity);
+
             if (selected === true) {
                 total += price * quantity;
             } else {
                 total -= price * quantity;
             }
+
             document.getElementById("total").innerHTML = "Total: $" + total;
         }
     });
@@ -68,28 +75,37 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
             // Store the current value on focus and on change
             previous = this.value;
         }).change(function () {
+            // Remove - option, leave the numbers
+            $("#select" + selectId + " option[value='0']").remove();
+
             current = this.value;
+            var currentCheckbox = '#checkbox' + selectId;
 
             // Is checkbox checked?
-            if ($('#checkbox' + selectId).is(":checked")) {
-                // Subtract this subtotal from the total so we can add the new value next
-                subtotal = price * parseInt(previous);
+            if ($(currentCheckbox).is(":checked")) {
+                // Subtract this subtotal from the total so we can add the new value
+                // Check first that the previous value is not -
+                previous = parseInt(previous);
+                subtotal = price * (previous === 0 ? 1 : previous);
                 total -= subtotal;
 
                 // Add the new total
                 subtotal = price * parseInt(current);
                 total += subtotal;
+            } else {
+                $(currentCheckbox).prop("checked", true);
 
-                // Update element!
-                document.getElementById("total").innerHTML = "Total: $" + total;
+                var quantityId = "#select" + selectId;
+                var quantity = $(quantityId).find(":selected").val();
+
+                total += price * parseInt(quantity);
             }
+
+            // Update element!
+            document.getElementById("total").innerHTML = "Total: $" + total;
 
             // Make sure the previous value is updated
             previous = current;
         });
     })();
-
-    //$(".selectClass").change(function () {
-    //    alert("Id: " + this.id + " " + "Val: " + this.value);
-    //});
 });
