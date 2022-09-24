@@ -3,7 +3,9 @@ function searchFunction() {
     // Declare variables 
     var i, i2, tds;
     var input = document.getElementById("searchInput");
-    var filter = input.value.toUpperCase();
+    input = input.value;
+    input = input.replace(/[^a-zA-Z]/g, ''); // Leave only alphabetic characters
+    var filter = input.toUpperCase();
     var table = document.getElementById("pricesTable");
     var trs = table.tBodies[0].getElementsByTagName("tr");
     var tdInnerText;
@@ -18,7 +20,6 @@ function searchFunction() {
 
         // hide the row
         trs[i].style.display = "none";
-
 
         // loop through row cells
         for (i2 = 0; i2 < tds.length; i2++) {
