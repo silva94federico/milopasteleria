@@ -1,4 +1,7 @@
 $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bWPB1vFsj4cfkyxMmaEZ_gLYgCQat0hmDK7pWyc/exec", function (data) {
+    // Sort JSON alphabetically
+    data = sortObject(data);
+
     var items = [];
     var id = 1;
 
@@ -109,3 +112,21 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
         });
     })();
 });
+
+function sortObject(o) {
+    var sorted = {},
+        key, a = [];
+
+    for (key in o) {
+        if (o.hasOwnProperty(key)) {
+            a.push(key);
+        }
+    }
+
+    a.sort();
+
+    for (key = 0; key < a.length; key++) {
+        sorted[a[key]] = o[a[key]];
+    }
+    return sorted;
+}
