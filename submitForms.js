@@ -11,7 +11,7 @@ function submitDetailsForm() {
     } else if (!number.match(/^\d+$/)) { 
         alert("Tu teléfono solo debe contener números (0-9)");
         return false;
-    } else if (total == "Total: $0") {
+    } else if (total === "Total: $0") {
         alert("¡No seleccionaste ningún producto!");
         return false;
     } else {
@@ -35,7 +35,7 @@ function submitDetailsForm() {
                 var selectId = "#select" + checkboxIdNum;
                 var select = $(selectId).val();
 
-                productsList += product + " " + "$" + price + " x" + select + "%0a";
+                productsList += product + " " + "$" + price + " x" + (select === '0' ? '1' : select) + "%0a";
             }
         });
         formatMessage += productsList + "*" + total + "*";
