@@ -57,7 +57,7 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
                 total -= price * quantity;
             }
 
-            document.getElementById("total").innerHTML = "Total: $" + total;
+            document.getElementById("total").innerHTML = "Total: $" + numberWithDots(total);
         }
     });
 
@@ -105,7 +105,7 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
             }
 
             // Update element!
-            document.getElementById("total").innerHTML = "Total: $" + total;
+            document.getElementById("total").innerHTML = "Total: $" + numberWithDots(total);
 
             // Make sure the previous value is updated
             previous = current;
@@ -129,4 +129,8 @@ function sortObject(o) {
         sorted[a[key]] = o[a[key]];
     }
     return sorted;
+}
+
+function numberWithDots(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
