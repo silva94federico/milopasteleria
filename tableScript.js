@@ -4,9 +4,8 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
 
     var items = [];
     var id = 1;
-
-    items.push("<div class=\"tableStyle\">")
-    items.push("<table id=\"pricesTable\"><tr><th>Agregar</th><th>Productos</th><th>Precio</th><th>Cantidad</th></tr>");
+    
+    items.push("<div class=\"tableStyle\"><table id=\"pricesTable\"><tr><th>Agregar</th><th>Productos</th><th>Precio</th><th>Cantidad</th></tr>");
     $.each(data, function (key, val) {
         items.push("<tr><td><input type=\"checkbox\" id=\"checkbox" + id + "\" value=\"cbox" + id + "\"></td><td id=\"product" + id + "\">" + key + "</td><td id=\"price" + id + "\">$" + val + "</td>" +
             "<td><select name=\"select" + id + "\" id=\"select" + id + "\" class=\"selectClass\"><option value=\"0\">-</option>" +
