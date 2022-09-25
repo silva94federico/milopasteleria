@@ -35,10 +35,10 @@ function submitDetailsForm() {
                 var selectId = "#select" + checkboxIdNum;
                 var select = $(selectId).val();
 
-                productsList += product + " " + "$" + price + " x" + (select === '0' ? '1' : select) + "%0a";
+                productsList += product + " " + "$" + numberWithDots(price) + " x" + (select === '0' ? '1' : select) + "%0a";
             }
         });
-        formatMessage += productsList + "*" + total + "*";
+        formatMessage += productsList + "*" + numberWithDots(total) + "*";
         window.location.replace("https://api.whatsapp.com/send/?phone=543814025949&text=" + formatMessage);
         return false;
     }
