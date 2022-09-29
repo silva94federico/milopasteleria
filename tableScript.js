@@ -7,6 +7,8 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
     
     items.push("<div class=\"tableStyle\"><table id=\"pricesTable\"><tr><th>Agregar</th><th>Productos</th><th>Precio</th><th>Cantidad</th></tr>");
     $.each(data, function (key, val) {
+        val = val.replace(/[^0-9]/g, '');
+
         items.push("<tr><td><input type=\"checkbox\" id=\"checkbox" + id + "\" value=\"cbox" + id + "\"></td><td id=\"product" + id + "\">" + key + "</td><td id=\"price" + id + "\">$" + numberWithDots(val) + "</td>" +
             "<td><select name=\"select" + id + "\" id=\"select" + id + "\" class=\"selectClass\"><option value=\"0\">-</option>" +
             "<option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option>" +
