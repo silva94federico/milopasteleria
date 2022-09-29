@@ -7,7 +7,7 @@ $.getJSON("https://script.google.com/macros/s/AKfycbyb1ekFzdhVVCGQCUI49TNXI0e1bW
     
     items.push("<div class=\"tableStyle\"><table id=\"pricesTable\"><tr><th>Agregar</th><th>Productos</th><th>Precio</th><th>Cantidad</th></tr>");
     $.each(data, function (key, val) {
-        items.push("<tr><td><input type=\"checkbox\" id=\"checkbox" + id + "\" value=\"cbox" + id + "\"></td><td id=\"product" + id + "\">" + key + "</td><td id=\"price" + id + "\">$" + val + "</td>" +
+        items.push("<tr><td><input type=\"checkbox\" id=\"checkbox" + id + "\" value=\"cbox" + id + "\"></td><td id=\"product" + id + "\">" + key + "</td><td id=\"price" + id + "\">$" + numberWithDots(val) + "</td>" +
             "<td><select name=\"select" + id + "\" id=\"select" + id + "\" class=\"selectClass\"><option value=\"0\">-</option>" +
             "<option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option>" +
             "<option value=\"7\">7</option><option value=\"8\">8</option><option value=\"9\">9</option><option value=\"10\">10</option><option value=\"11\">11</option><option value=\"12\">12</option>" +
