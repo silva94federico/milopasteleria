@@ -102,7 +102,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     /*min-height: 100vh;*/
-    height: calc(100vh - calc(100vh - 100%));
+    min-height: -webkit-fill-available;
     position: relative;
     background-color: rgb(255, 227, 227);
     font-family: 'Roboto', sans-serif;
